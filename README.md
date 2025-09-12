@@ -21,7 +21,7 @@ Simulador de transações Pix com arquitetura modular, mensageria, observabilida
 - **Portainer** (UI para gerenciar containers)
 
 
-![Arquitetura do Sistema](docs/diagrama da arquitet.png)
+![Arquitetura do Sistema](docs/diagrama_arquitet.png)
 
 
 ## 📋 Pré-requisitos
