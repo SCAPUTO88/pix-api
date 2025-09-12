@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: pix-api
+  main:
+    banner-mode: console
+  jackson:
+    serialization:
+      indent_output: true
+  datasource:
+    url: jdbc:postgresql://postgres:5432/pixdb
+    username: pixuser
+    password: pixpass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      show-details: always
+
