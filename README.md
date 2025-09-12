@@ -24,6 +24,8 @@ Simulador de transações Pix com arquitetura modular, mensageria, observabilida
 ![Arquitetura do Sistema](docs/diagrama_arquitet.png)
 
 
+
+
 ## 📋 Pré-requisitos
 
 - Docker e Docker Compose instalados
