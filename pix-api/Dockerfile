@@ -25,9 +25,21 @@ COPY pix-e2e-tests pix-e2e-tests
 RUN mvn -q -DskipTests clean package
 
 # Etapa 2: Runtime
-FROM gcr.io/distroless/java21-debian12:nonroot
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
+
+# Instalar wget para healthcheck
+RUN apk add --no-cache wget
+
+# Criar usuário não-root
+RUN addgroup -g 1001 -S nonroot && \
+    adduser -S nonroot -u 1001 -G nonroot
+
 COPY --from=build /app/pix-api/target/pix-api-*.jar app.jar
+
+# Mudar ownership do arquivo
+RUN chown nonroot:nonroot app.jar
+
 USER nonroot
 EXPOSE 8080
 ENTRYPOINT ["java","-XX:+UseSerialGC","-XX:MaxRAMPercentage=60","-XX:+ExitOnOutOfMemoryError","-jar","/app/app.jar"]

@@ -12,25 +12,25 @@
 
     <artifactId>pix-storage</artifactId>
     <name>pix-storage</name>
-    <description>Persistência e storage do simulador Pix</description>
 
     <dependencies>
-        <!-- DynamoDB -->
+        <!-- AWS SDK v2 DynamoDB -->
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>dynamodb</artifactId>
         </dependency>
 
-        <!-- S3 -->
+        <!-- Jackson -->
         <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>s3</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
         </dependency>
 
-        <!-- Spring Data JPA (se usar Postgres) -->
+        <!-- Módulo de domínio -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>dev.scaputo88</groupId>
+            <artifactId>pix-domain</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
